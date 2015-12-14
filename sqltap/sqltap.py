@@ -6,6 +6,7 @@ import traceback
 import collections
 import sys
 import os
+import codecs
 try:
     import queue
 except ImportError:
@@ -377,7 +378,7 @@ class Reporter(object):
 
         if self.report_file:
             report_file = os.path.join(self.report_dir, self.report_file)
-            with open(report_file, log_mode) as f:
+            with codecs.open(report_file, log_mode, encoding='utf8') as f:
                 f.write(content)
 
         return content
